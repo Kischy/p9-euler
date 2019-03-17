@@ -154,6 +154,9 @@
   <ItemGroup>
     <ClCompile Include="p9-euler.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PythagoreanTriplet.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
