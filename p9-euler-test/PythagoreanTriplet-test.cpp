@@ -16,14 +16,14 @@ TEST(PythagoreanTripletIsAClass, Exists) {
 
 }
 
-
-TEST(PythagoreanTripletSqrtTest, SQRTofSimpleInteger) {	
-	ASSERT_EQ(PythagoreanTriplet::sqrt(1), 1);
-	ASSERT_EQ(PythagoreanTriplet::sqrt(25), 5);
-	ASSERT_EQ(PythagoreanTriplet::sqrt(81), 9);
-	ASSERT_EQ(PythagoreanTriplet::sqrt(555), 308025);
-	ASSERT_EQ(PythagoreanTriplet::sqrt(80), 0);
-}
+//Tests for the sqrt_ineffective which has to be public in order for these tests to work.
+//TEST(PythagoreanTripletSqrtTest, SQRTofSimpleInteger) {	
+//	ASSERT_EQ(PythagoreanTriplet::sqrt_ineffective(1), 1);
+//	ASSERT_EQ(PythagoreanTriplet::sqrt_ineffective(25), 5);
+//	ASSERT_EQ(PythagoreanTriplet::sqrt_ineffective(81), 9);
+//	ASSERT_EQ(PythagoreanTriplet::sqrt_ineffective(308025), 555);
+//	ASSERT_EQ(PythagoreanTriplet::sqrt_ineffective(80), 0);
+//}
 
 
 TEST_F(PythagoreanTripletTestClass, FindSimplePythagoreanTripleEqualToSum)

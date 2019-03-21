@@ -2,7 +2,6 @@
 
 
 #include <vector>
-#include <cmath>
 
 
 class PythagoreanTriplet
@@ -23,30 +22,49 @@ public:
 	}
 
 
-	static unsigned int sqrt(unsigned int val)
-	{
-		unsigned int sqrt = (unsigned int)(std::sqrt(double(val)));
 
-		if ((sqrt*sqrt) == val) return sqrt;
-
-		return 0;
-	}
 
 private:
 	unsigned int find_second_value(unsigned int first_val, unsigned int sum_of_abc) const
 	{
-		unsigned int b = first_val, c = first_val, sum = 0;
+		unsigned int b = first_val+1, c = first_val+2, sum = calc_sum(first_val,b,c);
 		
 		while (sum <= sum_of_abc)
 		{
-			
+			if (sum == sum_of_abc) return b;
+
+
+
+
 		}	
 		
 
 
-		return b;
+		return 0;
 	}
 
+
+	unsigned int calc_sum(unsigned int a, unsigned int b, unsigned int c) const
+	{
+		return a + b + c;
+	}
+
+	// has to be public for testing
+	unsigned int sqrt_ineffective(unsigned int val) const
+	{
+		unsigned int sqrt = 0, sqrt_2x = 0;
+
+		while (sqrt_2x <= val)
+		{
+			if (sqrt_2x == val) return sqrt;
+
+			sqrt++;
+			sqrt_2x = sqrt * sqrt;
+
+		}
+
+		return 0;
+	}
 
 	
 
