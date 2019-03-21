@@ -10,8 +10,29 @@ public:
 	std::vector<unsigned int> find_pythagorean_triple_of_sum(unsigned int sum_of_abc) const
 	{
 		std::vector<unsigned int> abc;
-		unsigned int a = 0, b = 0, c = 0;
+		unsigned int a = 1, b = 1, c = 1, sum = calc_sum(a,b,c);
 
+
+
+		while (sum <= sum_of_abc)
+		{
+			b = find_second_value(a, sum_of_abc);
+			c = sqrt_ineffective(a * a + b * b);
+
+			sum = calc_sum(a, b, c);
+
+			if (sum == sum_of_abc) break;			
+			a++;
+		}
+
+
+
+		if (sum != sum_of_abc)
+		{
+			a = 0;
+			b = 0;
+			c = 0;
+		}
 
 
 
@@ -25,6 +46,7 @@ public:
 
 
 private:
+
 	unsigned int find_second_value(unsigned int first_val, unsigned int sum_of_abc) const
 	{
 		unsigned int b = first_val+1, c = first_val+2, sum = calc_sum(first_val,b,c);
@@ -33,11 +55,10 @@ private:
 		{
 			if (sum == sum_of_abc) return b;
 
-
-
-
-		}	
-		
+			b += 1;
+			c = sqrt_ineffective(first_val*first_val + b * b);
+			sum = calc_sum(first_val, b, c);
+		}		
 
 
 		return 0;
