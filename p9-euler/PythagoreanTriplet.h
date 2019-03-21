@@ -17,11 +17,18 @@ public:
 		while (sum <= sum_of_abc)
 		{
 			b = find_second_value(a, sum_of_abc);
-			c = sqrt_ineffective(a * a + b * b);
 
-			sum = calc_sum(a, b, c);
+			if (b != 0)
+			{
+				c = sqrt_ineffective(a * a + b * b);
 
-			if (sum == sum_of_abc) break;			
+				if (c != 0)
+				{
+					sum = calc_sum(a, b, c);
+					if (sum == sum_of_abc) break;
+				}
+			}
+
 			a++;
 		}
 
