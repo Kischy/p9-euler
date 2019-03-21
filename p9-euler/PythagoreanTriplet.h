@@ -10,19 +10,17 @@ public:
 	std::vector<unsigned int> find_pythagorean_triple_of_sum(unsigned int sum_of_abc) const
 	{
 		std::vector<unsigned int> abc;
-		unsigned int a = 1, b = 1, c = 1, sum = calc_sum(a,b,c);
-
-
+		unsigned int a = 1, b = 2, c = 3, sum = calc_sum(a,b,c);
 
 		while (sum <= sum_of_abc)
 		{
 			b = find_second_value(a, sum_of_abc);
 
-			if (b != 0)
+			if (isValidValue(b))
 			{
 				c = sqrt_ineffective(a * a + b * b);
 
-				if (c != 0)
+				if (isValidValue(c))
 				{
 					sum = calc_sum(a, b, c);
 					if (sum == sum_of_abc) break;
@@ -33,14 +31,12 @@ public:
 		}
 
 
-
 		if (sum != sum_of_abc)
 		{
 			a = 0;
 			b = 0;
 			c = 0;
 		}
-
 
 
 		abc.push_back(a);
@@ -54,7 +50,12 @@ public:
 
 private:
 
-	unsigned int find_second_value(unsigned int first_val, unsigned int sum_of_abc) const
+	inline bool isValidValue(unsigned int value) const
+	{
+		return value != 0;
+	}
+
+	inline unsigned int find_second_value(unsigned int first_val, unsigned int sum_of_abc) const
 	{
 		unsigned int b = first_val+1, c = first_val+2, sum = calc_sum(first_val,b,c);
 		
@@ -72,13 +73,13 @@ private:
 	}
 
 
-	unsigned int calc_sum(unsigned int a, unsigned int b, unsigned int c) const
+	inline unsigned int calc_sum(unsigned int a, unsigned int b, unsigned int c)  const
 	{
 		return a + b + c;
 	}
 
 	// has to be public for testing
-	unsigned int sqrt_ineffective(unsigned int val) const
+	inline unsigned int sqrt_ineffective(unsigned int val) const
 	{
 		unsigned int sqrt = 0, sqrt_2x = 0;
 
